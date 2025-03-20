@@ -923,7 +923,7 @@
         <div class="section-title">
             <h2>Contact Us</h2>
         </div><div class="contact-form">
-    <form target="_blank" action="https://formsubmit.co/pankajmehndiratta3@gmail.com" method="POST">
+    <form target= action="https://formsubmit.co/pankajmehndiratta3@gmail.com" method="POST">
         <div class="form-group">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -1040,5 +1040,32 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            service: document.getElementById('service').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Here you could:
+        // 1. Save to local storage
+        // 2. Send via email using a server endpoint
+        // 3. Store in a database via API
+        
+        // For now, let's just alert the user
+        alert('Thank you for your message! We will contact you soon.');
+        contactForm.reset(); // Clear the form
+    });
+});</script>
 </body>
 </html>
