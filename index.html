@@ -1041,6 +1041,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+    
     document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
@@ -1056,14 +1057,8 @@ s0.parentNode.insertBefore(s1,s0);
             message: document.getElementById('message').value
         };
         
-        // Here you could:
-        // 1. Save to local storage
-        // 2. Send via email using a server endpoint
-        // 3. Store in a database via API
-        
-        // For now, let's just alert the user
         alert('Thank you for your message! We will contact you soon.');
-        contactForm.reset(); // Clear the form
+        contactForm.reset(); 
     });
 });
 </body>
