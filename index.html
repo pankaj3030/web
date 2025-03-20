@@ -529,18 +529,6 @@
             resize: vertical;
         }
         
-        .map {
-            border-radius: 15px;
-            overflow: hidden;
-            height: 400px;
-        }
-        
-        .map img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
         footer {
             background-color: var(--dark-bg);
             padding: 50px 5% 20px;
@@ -919,40 +907,7 @@
         </div>
     </section>
     
-    <section id="contact">
-        <div class="section-title">
-            <h2>Contact Us</h2>
-        </div><div class="contact-form">
-    <form target="_blank" action="https://formsubmit.co/pankajmehndiratta3@gmail.com" method="POST">
-        <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-        </div>
-        <div class="form-group">
-            <label for="service">Service Interested In</label>
-            <input type="text" id="service" name="service" placeholder="What service are you interested in?">
-        </div>
-        <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" placeholder="Tell us more about what you're looking for" required></textarea>
-        </div>
-        <button type="submit" class="btn">Send Message</button>
-    </form>
-</div>
-            <div class="map">
-                <img src="/api/placeholder/600/400" alt="Map Location"/>
-            </div>
-        </div>
-    </section>
-    <footer>
+<footer>
 <div class="footer-content">
 <div class="footer-col">
                 <h3>Quick Links</h3>
@@ -963,8 +918,7 @@
                 <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
             </div>
-
-        
+    
             <div class="footer-col">
                 <h3>Healingg Stars</h3>
                 <p>Guiding you through life's journey with cosmic wisdom and numerological insights.</p>
@@ -975,6 +929,7 @@
                     <a href="#"><span>YT</span></a>
                 </div>
             </div>
+    
             <div class="footer-col">
                 <h3>Contact Info</h3>
                 <p>123 Cosmic Street, Universe City</p>
@@ -983,7 +938,7 @@
                 <p>Hours: Mon-Sat, 9AM - 6PM</p>
             </div>
            
-        </div>
+</div>
         <div class="copyright">
             <p>&copy; 2025 Healingg Stars. All Rights Reserved.</p>
         </div>
@@ -1027,6 +982,7 @@
             });
         });
     </script>
+    
     <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -1039,6 +995,29 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+
 <!--End of Tawk.to Script-->
+
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            service: document.getElementById('service').value,
+            message: document.getElementById('message').value
+        };
+        alert('Thank you for your message! We will contact you soon.');
+        contactForm.reset(); 
+    });
+});</script>
+    
+    
 </body>
 </html>
