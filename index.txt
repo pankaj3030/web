@@ -702,7 +702,7 @@
     </header>
     
     <section class="hero" id="home">
-        <img src="/Users/abudhabi/Desktop/Healingg Stars/images/astrologycircle.png" alt="Zodiac Wheel" class="zodiac-wheel"/>
+        <img src="/Users/abudhabi/Documents/GitHub/web/astrologycircle.png" alt="Zodiac Wheel" class="zodiac-wheel"/>
         <div class="hero-content">
             <h1>Discover Your Path to Harmony & Success</h1>
             <p>Discover your cosmic destiny through ancient wisdom and modern spiritual techniques. We guide you towards abundance, clarity, and personal transformation.</p>
@@ -717,7 +717,7 @@
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-img">
-                    <img src="/Users/abudhabi/Desktop/Healingg Stars/images/personalastrology.jpg" alt="Personal Astrology"/>
+                    <img src="/Users/abudhabi/Documents/GitHub/web/personalastrology.jpg" alt="Personal Astrology"/>
                 </div>
                 <div class="service-content">
                     <h3>Personal Astrology</h3>
@@ -733,7 +733,7 @@
             </div>
             <div class="service-card">
                 <div class="service-img">
-                    <img src="/Users/abudhabi/Desktop/Healingg Stars/images/numerology.jpeg" alt="Numerology Analysis"/>
+                    <img src="/Users/abudhabi/Documents/GitHub/web/numerology.jpeg" alt="Numerology Analysis"/>
                 </div>
                 <div class="service-content">
                     <h3>Numerology Analysis</h3>
@@ -749,7 +749,7 @@
             </div>
             <div class="service-card">
                 <div class="service-img">
-                    <img src="/Users/abudhabi/Desktop/Healingg Stars/images/eft.jpeg" alt="EFT & TFT"/>
+                    <img src="/Users/abudhabi/Documents/GitHub/web/eft.jpeg" alt="EFT & TFT"/>
                 </div>
                 <div class="service-content">
                     <h3>EFT & TFT</h3>
@@ -766,7 +766,7 @@
             </div>
             <div class="service-card">
                 <div class="service-img">
-                    <img src="/Users/abudhabi/Desktop/Healingg Stars/images/crystal.jpeg" alt="Crystal Healing"/>
+                    <img src="/Users/abudhabi/Documents/GitHub/web/crystal.jpeg" alt="Crystal Healing"/>
                 </div>
                 <div class="service-content">
                     <h3>Crystal Healing</h3>
@@ -783,7 +783,7 @@
             </div>
             <div class="service-card">
                 <div class="service-img">
-                    <img src="/Users/abudhabi/Desktop/Healingg Stars/images/energy.jpeg" alt="Energy Clearing & Healing"/>
+                    <img src="/Users/abudhabi/Documents/GitHub/web/energy.jpeg" alt="Energy Clearing & Healing"/>
                 </div>
                 <div class="service-content">
                     <h3>Energy Clearing & Healing</h3>
@@ -800,7 +800,7 @@
             </div>
             <div class="service-card">
                 <div class="service-img">
-                    <img src="/Users/abudhabi/Desktop/Healingg Stars/images/tarotreading.jpeg" alt="Tarot Readings"/>
+                    <img src="/Users/abudhabi/Documents/GitHub/web/tarotreading.jpeg" alt="Tarot Readings"/>
                 </div>
                 <div class="service-content">
                     <h3>Tarot Readings</h3>
@@ -817,7 +817,7 @@
             </div>
             <div class="service-card">
                 <div class="service-img">
-                    <img src="/Users/abudhabi/Desktop/Healingg Stars/images/relationshipcompatibility.jpeg" alt="Relationship Compatibility"/>
+                    <img src="/Users/abudhabi/Documents/GitHub/web/relationshipcompatibility.jpeg" alt="Relationship Compatibility"/>
                 </div>
                 <div class="service-content">
                     <h3>Relationship Compatibility</h3>
@@ -833,7 +833,7 @@
             </div>
             <div class="service-card">
                 <div class="service-img">
-                    <img src="/Users/abudhabi/Desktop/Healingg Stars/images/business.jpeg" alt="Business Astrology"/>
+                    <img src="/Users/abudhabi/Documents/GitHub/web/business.jpeg" alt="Business Astrology"/>
                 </div>
                 <div class="service-content">
                     <h3>Business Astrology</h3>
