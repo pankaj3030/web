@@ -664,6 +664,119 @@
                 height: 250px;
             }
         }
+        /* Consultation Process Section Styles */
+#consultation-process {
+    padding: 100px 5%;
+    background: linear-gradient(to right, rgba(23, 10, 53, 0.7), rgba(15, 36, 58, 0.7));
+    position: relative;
+}
+
+.process-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step {
+    flex-basis: calc(20% - 20px);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+}
+
+.step:not(:last-child):after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    z-index: 1;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(255, 140, 66, 0.5);
+}
+
+.step h3 {
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.step p {
+    color: #c5c5c5;
+    font-size: 0.9rem;
+}
+
+/* Animation for the steps */
+.step {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 991px) {
+    .step {
+        flex-basis: calc(33.33% - 20px);
+        margin-bottom: 40px;
+    }
+    
+    .step:nth-child(3):after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .step {
+        flex-basis: calc(50% - 20px);
+    }
+    
+    .step:nth-child(2):after {
+        display: none;
+    }
+    
+    .step:nth-child(4):after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .step {
+        flex-basis: 100%;
+        margin-bottom: 40px;
+    }
+    
+    .step:not(:last-child):after {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
@@ -905,6 +1018,43 @@
             </div>
         </div>
     </section>
+
+    <!-- Consultation Process Section -->
+<section id="consultation-process">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Consultation Process</h2>
+            <p>A simple and effective journey to unlock your potential</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Book</h3>
+                <p>Schedule your consultation online or via phone</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Prepare</h3>
+                <p>Provide your birth details and specific questions</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Consult</h3>
+                <p>Receive dedicated time with our experts</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Report</h3>
+                <p>Get detailed insights and recommendations</p>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <h3>Support</h3>
+                <p>Access guidance as you implement changes</p>
+            </div>
+        </div>
+    </div>
+</section>
     
     <section id="contact">
         <div class="section-title">
@@ -1044,6 +1194,46 @@ s0.parentNode.insertBefore(s1,s0);
         contactForm.reset(); 
     });
 });</script>
+
+    <script>
+        // Animation for consultation process steps
+document.addEventListener('DOMContentLoaded', function() {
+    const steps = document.querySelectorAll('.step');
+    
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
+    // Function to add visible class when element is in viewport
+    function handleScroll() {
+        steps.forEach(step => {
+            if (isInViewport(step)) {
+                step.classList.add('visible');
+            }
+        });
+    }
+    
+    // Add animation with delay to each step
+    steps.forEach((step, index) => {
+        setTimeout(() => {
+            step.style.transitionDelay = index * 200 + 'ms';
+        }, 100);
+    });
+    
+    // Check on scroll
+    window.addEventListener('scroll', handleScroll);
+    
+    // Check on load
+    handleScroll();
+});
+    </script>
     
 </body>
 </html>
