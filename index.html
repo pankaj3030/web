@@ -1860,5 +1860,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     return formatter.format(amount);
 }</script>
+<script>
+    function detectLocation() {
+    // Get IP address
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(ipData => {
+            // Use IP to get country
+            return fetch(`https://ipapi.co/${ipData.ip}/json/`);
+        })
+        .then(response => response.json())
+        .then(locationData => {
+            if (locationData && locationData.country_code) {
+                console.log("User country:", locationData.country_code);
+                updatePricing(locationData.country_code);
+            }
+        })
+        .catch(error => {
+            console.error("Location detection failed:", error);
+            // Fall back to default pricing
+        });
+}
+</script>
 </body>
 </html>
