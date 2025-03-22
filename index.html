@@ -19,7 +19,7 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-        
+    
         body {
             background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
             color: var(--text-color);
@@ -1735,36 +1735,6 @@ const regionPrices = {
         tarot_readings: 80
     }
 };
-
-// Display a notification about regional pricing
-function showRegionNotification(region) {
-    // Remove any existing notification
-    const existingNotification = document.querySelector('.region-notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    // Create new notification
-    const regionNames = {
-        'global': 'Global',
-        'in': 'India',
-        'uk': 'United Kingdom',
-        'eu': 'Europe',
-        'au': 'Australia',
-        'ca': 'Canada'
-    };
-    
-    const notification = document.createElement('div');
-    notification.className = 'region-notification';
-    notification.innerHTML = `
-        <p>Prices are currently displayed for <strong>${regionNames[region]}</strong>. 
-        You can change your region using the selector in the top menu.</p>
-    `;
-    
-    // Insert after the services title
-    const servicesTitle = document.querySelector('#services .section-title');
-    servicesTitle.insertAdjacentElement('afterend', notification);
-}
 
 // Update prices based on selected region
 function updatePrices(region) {
