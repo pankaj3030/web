@@ -1078,21 +1078,27 @@
         </div>
     </div>
 </section>
-<!-- Replace your current contact form section with this -->
+    
+<!-- Replace your current contact form section with this implementation -->
 <section id="contact">
     <div class="section-title">
         <h2>Contact Us</h2>
     </div>
     <div class="contact">
-        <!-- Form with auto-responder functionality -->
-        <form class="contact-form" action="https://formsubmit.co/pankajjmendiratt@gmail.com" method="POST">
-            <!-- Replace your-email@example.com with your actual email -->
-            
-            <!-- FormSubmit configuration -->
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_autoresponse" value="Thank you for contacting Healing Stars! We have received your message and will get back to you as soon as possible. Your cosmic journey with us begins now.">
-            <input type="hidden" name="_autoresponse_subject" value="Your Message Was Received - Healing Stars">
+        <!-- Form using StaticForms service -->
+        <form class="contact-form" action="https://api.staticforms.xyz/submit" method="POST">
+            <!-- Replace YOUR_ACCESS_KEY with your actual StaticForms access key -->
+            <form action="https://api.staticforms.xyz/submit" method="post">
+        <input type="text" name="name" placeholder="Your Name">
+        <input type="text" name="email" placeholder="Your Email" />
+        <textarea name="message"></textarea>
+        <input type="text" name="honeypot" style="display:none">
+        <input type="hidden" name="accessKey" value="aaaaaaaa-bbbb-cccc-dddd-eeee6666kkkk">
+        <input type="hidden" name="subject" value="Contact us from - example.com" />
+        <input type="hidden" name="replyTo" value="@">
+        <input type="hidden" name="redirectTo" value="https://example.com/contact/success">
+        <input type="submit" value="Submit" />
+    </form>
             
             <div class="form-group">
                 <label for="name">Your Name</label>
@@ -1106,12 +1112,12 @@
             
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                <input type="text" id="phone" name="$phone" placeholder="Enter your phone number">
             </div>
             
             <div class="form-group">
                 <label for="service">Service Interested In</label>
-                <input type="text" id="service" name="service" placeholder="What service are you interested in?">
+                <input type="text" id="service" name="$service" placeholder="What service are you interested in?">
             </div>
             
             <div class="form-group">
@@ -1119,13 +1125,13 @@
                 <textarea id="message" name="message" placeholder="Tell us more about what you're looking for" required></textarea>
             </div>
             
+            <!-- Honeypot field to prevent spam -->
+            <input type="text" name="honeypot" style="display: none;">
+            
             <button type="submit" class="btn">Send Message</button>
         </form>
         
-        <div class="map">
-            <img src="/api/placeholder/600/400" alt="Map Location"/>
-        </div>
-    </div>
+    
 </section>
 
     
