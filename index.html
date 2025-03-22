@@ -1088,17 +1088,10 @@
         <!-- Form using StaticForms service -->
         <form class="contact-form" action="https://api.staticforms.xyz/submit" method="POST">
             <!-- Replace YOUR_ACCESS_KEY with your actual StaticForms access key -->
-            <form action="https://api.staticforms.xyz/submit" method="post">
-        <input type="text" name="name" placeholder="Your Name">
-        <input type="text" name="email" placeholder="Your Email" />
-        <textarea name="message"></textarea>
-        <input type="text" name="honeypot" style="display:none">
-        <input type="hidden" name="accessKey" value="aaaaaaaa-bbbb-cccc-dddd-eeee6666kkkk">
-        <input type="hidden" name="subject" value="Contact us from - example.com" />
-        <input type="hidden" name="replyTo" value="@">
-        <input type="hidden" name="redirectTo" value="https://example.com/contact/success">
-        <input type="submit" value="Submit" />
-    </form>
+            <input type="hidden" name="accessKey" value="YOUR_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New Contact from Healing Stars Website">
+            <input type="hidden" name="replyTo" value="@">
+            <input type="hidden" name="redirectTo" value="https://yourdomain.com/thankyou">
             
             <div class="form-group">
                 <label for="name">Your Name</label>
@@ -1133,7 +1126,6 @@
         
     
 </section>
-
     
 <footer>
 <div class="footer-content">
