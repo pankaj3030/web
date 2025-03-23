@@ -1313,95 +1313,111 @@
         </div>
     </section>
     
-    <section id="pricing">
+<section id="pricing">
     <div class="section-title">
-        <h2>Our Pricing</h2>
+      <h2>Our Pricing</h2>
     </div>
     <p class="section-intro">We offer transparent pricing with packages tailored to your specific needs. All consultations include personalized guidance and follow-up support.</p>
     
+    <div class="region-container">
+      <div class="region-info">
+        <div class="region-icon">📍</div>
+        <div class="region-text">Showing prices for <span id="current-region-name">Global</span></div>
+      </div>
+      <div class="region-selector">
+        <select id="region-select">
+          <option value="global">Global (USD)</option>
+          <option value="in">India (INR)</option>
+          <option value="uk">United Kingdom (GBP)</option>
+          <option value="eu">Europe (EUR)</option>
+          <option value="au">Australia (AUD)</option>
+          <option value="ca">Canada (CAD)</option>
+        </select>
+      </div>
+    </div>
+    
     <div class="pricing-container">
-        <div class="pricing-card">
-            <div class="pricing-header">
-                <h3>Basic Consultation</h3>
-                <div class="price">₹1,999</div>
-                <p class="duration">60 Minutes</p>
-            </div>
-            <div class="pricing-features">
-                <ul>
-                    <li>Single Topic Focus</li>
-                    <li>Detailed Analysis</li>
-                    <li>Email Summary</li>
-                    <li>1 Follow-up Question</li>
-                </ul>
-            </div>
-            <a href="#contact" class="btn pricing-btn">Book Now</a>
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Basic Consultation</h3>
+          <div id="basic-price" class="price">$100</div>
+          <p class="duration">60 Minutes</p>
         </div>
-        
-        <div class="pricing-card popular">
-            <div class="popular-tag">Most Popular</div>
-            <div class="pricing-header">
-                <h3>Comprehensive Reading</h3>
-                <div class="price">₹3,499</div>
-                <p class="duration">90 Minutes</p>
-            </div>
-            <div class="pricing-features">
-                <ul>
-                    <li>Multiple Areas of Life</li>
-                    <li>In-depth Analysis</li>
-                    <li>Written Report</li>
-                    <li>2 Week Email Support</li>
-                    <li>Customized Recommendations</li>
-                </ul>
-            </div>
-            <a href="#contact" class="btn pricing-btn">Book Now</a>
+        <div class="pricing-features">
+          <ul>
+            <li>Single Topic Focus</li>
+            <li>Detailed Analysis</li>
+            <li>Email Summary</li>
+            <li>1 Follow-up Question</li>
+          </ul>
         </div>
-        
-        <div class="pricing-card">
-            <div class="pricing-header">
-                <h3>Premium Package</h3>
-                <div class="price">₹5,999</div>
-                <p class="duration">3 Sessions</p>
-            </div>
-            <div class="pricing-features">
-                <ul>
-                    <li>Complete Life Analysis</li>
-                    <li>Detailed Written Report</li>
-                    <li>3 Month Support</li>
-                    <li>Customized Healing Plan</li>
-                    <li>Priority Scheduling</li>
-                </ul>
-            </div>
-            <a href="#contact" class="btn pricing-btn">Book Now</a>
+        <a href="#contact" class="btn pricing-btn">Book Now</a>
+      </div>
+      
+      <div class="pricing-card popular">
+        <div class="popular-tag">Most Popular</div>
+        <div class="pricing-header">
+          <h3>Comprehensive Reading</h3>
+          <div id="comprehensive-price" class="price">$200</div>
+          <p class="duration">90 Minutes</p>
         </div>
+        <div class="pricing-features">
+          <ul>
+            <li>Multiple Areas of Life</li>
+            <li>In-depth Analysis</li>
+            <li>Written Report</li>
+            <li>2 Week Email Support</li>
+            <li>Customized Recommendations</li>
+          </ul>
+        </div>
+        <a href="#contact" class="btn pricing-btn">Book Now</a>
+      </div>
+      
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Premium Package</h3>
+          <div id="premium-price" class="price">$350</div>
+          <p class="duration">3 Sessions</p>
+        </div>
+        <div class="pricing-features">
+          <ul>
+            <li>Complete Life Analysis</li>
+            <li>Detailed Written Report</li>
+            <li>3 Month Support</li>
+            <li>Customized Healing Plan</li>
+            <li>Priority Scheduling</li>
+          </ul>
+        </div>
+        <a href="#contact" class="btn pricing-btn">Book Now</a>
+      </div>
     </div>
     
     <div class="specialized-services">
-        <h3>Specialized Services</h3>
-        <div class="specialized-grid">
-            <div class="specialized-item">
-                <h4>Business Astrology</h4>
-                <div class="specialized-price">₹4,999</div>
-                <p>Strategic guidance for business decisions and timing</p>
-            </div>
-            <div class="specialized-item">
-                <h4>Couple's Compatibility</h4>
-                <div class="specialized-price">₹3,999</div>
-                <p>Comprehensive relationship analysis for two people</p>
-            </div>
-            <div class="specialized-item">
-                <h4>Energy Healing Session</h4>
-                <div class="specialized-price">₹2,499</div>
-                <p>Full chakra balancing and energy clearing</p>
-            </div>
-            <div class="specialized-item">
-                <h4>EFT/TFT Therapy</h4>
-                <div class="specialized-price">₹2,799</div>
-                <p>Targeted emotional healing techniques</p>
-            </div>
+      <h3>Specialized Services</h3>
+      <div class="specialized-grid">
+        <div class="specialized-item">
+          <h4>Business Astrology</h4>
+          <div id="business-price" class="specialized-price">$150</div>
+          <p>Strategic guidance for business decisions and timing</p>
         </div>
+        <div class="specialized-item">
+          <h4>Couple's Compatibility</h4>
+          <div id="couples-price" class="specialized-price">$125</div>
+          <p>Comprehensive relationship analysis for two people</p>
+        </div>
+        <div class="specialized-item">
+          <h4>Energy Healing Session</h4>
+          <div id="energy-price" class="specialized-price">$85</div>
+          <p>Full chakra balancing and energy clearing</p>
+        </div>
+        <div class="specialized-item">
+          <h4>EFT/TFT Therapy</h4>
+          <div id="therapy-price" class="specialized-price">$90</div>
+          <p>Targeted emotional healing techniques</p>
+        </div>
+      </div>
     </div>
-</section>
-   
+  </section>
     
     <section id="testimonials" class="testimonials">
         <div class="section-title">
@@ -1870,5 +1886,224 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 }
 </script>
+<script>
+    // Price configuration for different regions
+    const regionData = {
+      'global': {
+        name: 'Global',
+        currency: '$',
+        symbol: '$',
+        prices: {
+          basic: 100,
+          comprehensive: 200,
+          premium: 350,
+          business: 150,
+          couples: 125,
+          energy: 85,
+          therapy: 90
+        }
+      },
+      'in': {
+        name: 'India',
+        currency: 'INR',
+        symbol: '₹',
+        prices: {
+          basic: 1999,
+          comprehensive: 3499,
+          premium: 5999,
+          business: 4999,
+          couples: 3999,
+          energy: 2499,
+          therapy: 2799
+        }
+      },
+      'uk': {
+        name: 'United Kingdom',
+        currency: 'GBP',
+        symbol: '£',
+        prices: {
+          basic: 80,
+          comprehensive: 160,
+          premium: 280,
+          business: 120,
+          couples: 100,
+          energy: 70,
+          therapy: 75
+        }
+      },
+      'eu': {
+        name: 'Europe',
+        currency: 'EUR',
+        symbol: '€',
+        prices: {
+          basic: 90,
+          comprehensive: 180,
+          premium: 320,
+          business: 140,
+          couples: 115,
+          energy: 80,
+          therapy: 85
+        }
+      },
+      'au': {
+        name: 'Australia',
+        currency: 'AUD',
+        symbol: 'A$',
+        prices: {
+          basic: 140,
+          comprehensive: 280,
+          premium: 490,
+          business: 220,
+          couples: 190,
+          energy: 120,
+          therapy: 130
+        }
+      },
+      'ca': {
+        name: 'Canada',
+        currency: 'CAD',
+        symbol: 'C$',
+        prices: {
+          basic: 130,
+          comprehensive: 260,
+          premium: 450,
+          business: 200,
+          couples: 170,
+          energy: 110,
+          therapy: 120
+        }
+      }
+    };
+    
+    // Update prices based on selected region
+    function updatePrices(region) {
+      const regionInfo = regionData[region];
+      
+      if (!regionInfo) return;
+      
+      // Update price elements
+      document.getElementById('basic-price').textContent = regionInfo.symbol + regionInfo.prices.basic;
+      document.getElementById('comprehensive-price').textContent = regionInfo.symbol + regionInfo.prices.comprehensive;
+      document.getElementById('premium-price').textContent = regionInfo.symbol + regionInfo.prices.premium;
+      document.getElementById('business-price').textContent = regionInfo.symbol + regionInfo.prices.business;
+      document.getElementById('couples-price').textContent = regionInfo.symbol + regionInfo.prices.couples;
+      document.getElementById('energy-price').textContent = regionInfo.symbol + regionInfo.prices.energy;
+      document.getElementById('therapy-price').textContent = regionInfo.symbol + regionInfo.prices.therapy;
+      
+      // Update region name display
+      document.getElementById('current-region-name').textContent = regionInfo.name;
+      
+      // Save preference to localStorage
+      localStorage.setItem('user_region', region);
+      
+      // Update dropdown selection
+      document.getElementById('region-select').value = region;
+    }
+    
+    // Show notification
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.querySelector('p').textContent = message;
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+    
+    // Detect user's region based on IP
+    async function detectUserRegion() {
+      try {
+        // Get user's IP and location information from a free API
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        
+        let detectedRegion = 'global'; // Default
+        
+        // Map country code to our region options
+        if (data.country === 'IN') {
+          detectedRegion = 'in';
+        } else if (data.country === 'GB') {
+          detectedRegion = 'uk';
+        } else if (['DE', 'FR', 'IT', 'ES', 'NL', 'BE', 'AT', 'GR', 'PT'].includes(data.country)) {
+          detectedRegion = 'eu';
+        } else if (data.country === 'AU') {
+          detectedRegion = 'au';
+        } else if (data.country === 'CA') {
+          detectedRegion = 'ca';
+        }
+        
+        return {
+          region: detectedRegion,
+          country: data.country_name || 'your region'
+        };
+      } catch (error) {
+        console.error('Error detecting region:', error);
+        return {
+          region: 'global',
+          country: 'Global'
+        };
+      }
+    }
+    
+    // Initialize pricing for user
+    async function initializePricing() {
+      const savedRegion = localStorage.getItem('user_region');
+      
+      if (savedRegion && regionData[savedRegion]) {
+        // Use saved preference
+        updatePrices(savedRegion);
+        showNotification(`Using your preferred pricing for ${regionData[savedRegion].name}`);
+      } else {
+        // Detect region
+        try {
+          const { region, country } = await detectUserRegion();
+          updatePrices(region);
+          showNotification(`Showing prices for ${country}`);
+        } catch (error) {
+          // Fallback to global pricing if detection fails
+          updatePrices('global');
+        }
+      }
+      
+      // Hide loading overlay
+      document.getElementById('loading-overlay').style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('loading-overlay').style.display = 'none';
+      }, 500);
+    }
+    
+    // Event listener for region select
+    document.addEventListener('DOMContentLoaded', function() {
+      const regionSelect = document.getElementById('region-select');
+      
+      regionSelect.addEventListener('change', function() {
+        const selectedRegion = this.value;
+        updatePrices(selectedRegion);
+        showNotification(`Switched to ${regionData[selectedRegion].name} pricing`);
+      });
+      
+      // Initialize pricing when DOM is loaded
+      initializePricing();
+    });
+    
+    // Fallback for browsers with JavaScript disabled
+    window.onload = function() {
+      if (document.getElementById('loading-overlay').style.display !== 'none') {
+        document.getElementById('loading-overlay').style.display = 'none';
+        updatePrices('global');
+      }
+    };
+  </script>
+  
+  <noscript>
+    <style>
+      .loading-overlay { display: none; }
+    </style>
+    <div style="background: rgba(255, 140, 66, 0.1); border-left: 3px solid #ff8c42; padding: 10px 15px; margin: 20px auto; border-radius: 0 5px 5px 0; font-size: 0.9rem; max-width: 1200px;">
+      <p>Please note: For accurate regional pricing, please enable JavaScript or contact us directly.</p>
+    </div>
+  </noscript>
 </body>
 </html>
+
