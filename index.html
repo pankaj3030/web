@@ -1319,21 +1319,9 @@
     </div>
     <p class="section-intro">We offer transparent pricing with packages tailored to your specific needs. All consultations include personalized guidance and follow-up support.</p>
     
-    <div class="region-container">
-      <div class="region-info">
-        <div class="region-icon">📍</div>
-        <div class="region-text">Showing prices for <span id="current-region-name">Global</span></div>
-      </div>
-      <div class="region-selector">
-        <select id="region-select">
-          <option value="global">Global (USD)</option>
-          <option value="in">India (INR)</option>
-          <option value="uk">United Kingdom (GBP)</option>
-          <option value="eu">Europe (EUR)</option>
-          <option value="au">Australia (AUD)</option>
-          <option value="ca">Canada (CAD)</option>
-        </select>
-      </div>
+    <div class="region-info">
+      <div class="region-icon">📍</div>
+      <div class="region-text">Prices shown for <span id="current-region-name">Global</span></div>
     </div>
     
     <div class="pricing-container">
@@ -1418,6 +1406,7 @@
       </div>
     </div>
   </section>
+
     
     <section id="testimonials" class="testimonials">
         <div class="section-title">
@@ -1992,23 +1981,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Update region name display
       document.getElementById('current-region-name').textContent = regionInfo.name;
-      
-      // Save preference to localStorage
-      localStorage.setItem('user_region', region);
-      
-      // Update dropdown selection
-      document.getElementById('region-select').value = region;
-    }
-    
-    // Show notification
-    function showNotification(message) {
-      const notification = document.getElementById('notification');
-      notification.querySelector('p').textContent = message;
-      notification.classList.add('show');
-      
-      setTimeout(() => {
-        notification.classList.remove('show');
-      }, 3000);
     }
     
     // Detect user's region based on IP
@@ -2033,37 +2005,22 @@ document.addEventListener('DOMContentLoaded', function() {
           detectedRegion = 'ca';
         }
         
-        return {
-          region: detectedRegion,
-          country: data.country_name || 'your region'
-        };
+        return detectedRegion;
       } catch (error) {
         console.error('Error detecting region:', error);
-        return {
-          region: 'global',
-          country: 'Global'
-        };
+        return 'global';
       }
     }
     
     // Initialize pricing for user
     async function initializePricing() {
-      const savedRegion = localStorage.getItem('user_region');
-      
-      if (savedRegion && regionData[savedRegion]) {
-        // Use saved preference
-        updatePrices(savedRegion);
-        showNotification(`Using your preferred pricing for ${regionData[savedRegion].name}`);
-      } else {
+      try {
         // Detect region
-        try {
-          const { region, country } = await detectUserRegion();
-          updatePrices(region);
-          showNotification(`Showing prices for ${country}`);
-        } catch (error) {
-          // Fallback to global pricing if detection fails
-          updatePrices('global');
-        }
+        const region = await detectUserRegion();
+        updatePrices(region);
+      } catch (error) {
+        // Fallback to global pricing if detection fails
+        updatePrices('global');
       }
       
       // Hide loading overlay
@@ -2073,17 +2030,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 500);
     }
     
-    // Event listener for region select
+    // Initialize pricing when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
-      const regionSelect = document.getElementById('region-select');
-      
-      regionSelect.addEventListener('change', function() {
-        const selectedRegion = this.value;
-        updatePrices(selectedRegion);
-        showNotification(`Switched to ${regionData[selectedRegion].name} pricing`);
-      });
-      
-      // Initialize pricing when DOM is loaded
       initializePricing();
     });
     
@@ -2106,4 +2054,3 @@ document.addEventListener('DOMContentLoaded', function() {
   </noscript>
 </body>
 </html>
-
