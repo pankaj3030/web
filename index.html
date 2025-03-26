@@ -1679,175 +1679,267 @@ document.addEventListener('DOMContentLoaded', function() {
 });
     </script>
 
-
-     <script>   
-    // Price configuration for different regions
-    const regionData = {
-        'global': {
-            name: 'Global',
-            currency: '$',
-            symbol: '$',
-            prices: {
-                basic: 100,
-                comprehensive: 200,
-                premium: 350,
-                business: 150,
-                couples: 125,
-                energy: 85,
-                therapy: 90
-            }
-        },
-        'in': {
-            name: 'India',
-            currency: 'INR',
-            symbol: '₹',
-            prices: {
-                basic: 1999,
-                comprehensive: 3499,
-                premium: 5999,
-                business: 4999,
-                couples: 3999,
-                energy: 2499,
-                therapy: 2799
-            }
-        },
-        'uk': {
-            name: 'United Kingdom',
-            currency: 'GBP',
-            symbol: '£',
-            prices: {
-                basic: 80,
-                comprehensive: 160,
-                premium: 280,
-                business: 120,
-                couples: 100,
-                energy: 70,
-                therapy: 75
-            }
-        },
-        'eu': {
-            name: 'Europe',
-            currency: 'EUR',
-            symbol: '€',
-            prices: {
-                basic: 90,
-                comprehensive: 180,
-                premium: 320,
-                business: 140,
-                couples: 115,
-                energy: 80,
-                therapy: 85
-            }
-        },
-        'us': {
-            name: 'United States',
-            currency: 'USD',
-            symbol: '$',
-            prices: {
-                basic: 100,
-                comprehensive: 200,
-                premium: 350,
-                business: 150,
-                couples: 125,
-                energy: 85,
-                therapy: 90
-            }
-        },
-        'ca': {
-            name: 'Canada',
-            currency: 'CAD',
-            symbol: 'C$',
-            prices: {
-                basic: 130,
-                comprehensive: 260,
-                premium: 450,
-                business: 200,
-                couples: 170,
-                energy: 110,
-                therapy: 120
-            }
+<script>
+     // Price configuration for different regions
+const regionData = {
+    'global': {
+        name: 'Global',
+        currency: '$',
+        symbol: '$',
+        prices: {
+            basic: 100,
+            comprehensive: 200,
+            premium: 350,
+            business: 150,
+            couples: 125,
+            energy: 85,
+            therapy: 90,
+            personalAstrology: 80,
+            numerology: 75,
+            relationshipCompatibility: 95,
+            businessAstrology: 120,
+            eftTft: 85,
+            crystalHealing: 70,
+            energyClearing: 80,
+            tarotReading: 65
         }
+    },
+    'in': {
+        name: 'India',
+        currency: 'INR',
+        symbol: '₹',
+        prices: {
+            basic: 1999,
+            comprehensive: 3499,
+            premium: 5999,
+            business: 4999,
+            couples: 3999,
+            energy: 2499,
+            therapy: 2799,
+            personalAstrology: 1499,
+            numerology: 1399,
+            relationshipCompatibility: 1799,
+            businessAstrology: 2299,
+            eftTft: 1599,
+            crystalHealing: 1299,
+            energyClearing: 1499,
+            tarotReading: 1199
+        }
+    },
+    'uk': {
+        name: 'United Kingdom',
+        currency: 'GBP',
+        symbol: '£',
+        prices: {
+            basic: 80,
+            comprehensive: 160,
+            premium: 280,
+            business: 120,
+            couples: 100,
+            energy: 70,
+            therapy: 75,
+            personalAstrology: 65,
+            numerology: 60,
+            relationshipCompatibility: 75,
+            businessAstrology: 95,
+            eftTft: 70,
+            crystalHealing: 55,
+            energyClearing: 65,
+            tarotReading: 50
+        }
+    },
+    'eu': {
+        name: 'Europe',
+        currency: 'EUR',
+        symbol: '€',
+        prices: {
+            basic: 90,
+            comprehensive: 180,
+            premium: 320,
+            business: 140,
+            couples: 115,
+            energy: 80,
+            therapy: 85,
+            personalAstrology: 72,
+            numerology: 68,
+            relationshipCompatibility: 85,
+            businessAstrology: 110,
+            eftTft: 78,
+            crystalHealing: 62,
+            energyClearing: 72,
+            tarotReading: 58
+        }
+    },
+    'us': {
+        name: 'United States',
+        currency: 'USD',
+        symbol: '$',
+        prices: {
+            basic: 100,
+            comprehensive: 200,
+            premium: 350,
+            business: 150,
+            couples: 125,
+            energy: 85,
+            therapy: 90,
+            personalAstrology: 80,
+            numerology: 75,
+            relationshipCompatibility: 95,
+            businessAstrology: 120,
+            eftTft: 85,
+            crystalHealing: 70,
+            energyClearing: 80,
+            tarotReading: 65
+        }
+    },
+    'ca': {
+        name: 'Canada',
+        currency: 'CAD',
+        symbol: 'C$',
+        prices: {
+            basic: 130,
+            comprehensive: 260,
+            premium: 450,
+            business: 200,
+            couples: 170,
+            energy: 110,
+            therapy: 120,
+            personalAstrology: 105,
+            numerology: 100,
+            relationshipCompatibility: 125,
+            businessAstrology: 160,
+            eftTft: 115,
+            crystalHealing: 90,
+            energyClearing: 105,
+            tarotReading: 85
+        }
+    }
+};
+
+// Multiple API options for geo-detection with fallbacks
+async function detectUserRegion() {
+    try {
+        // Try first API (ipinfo.io)
+        let response = await fetch('https://ipinfo.io/json?token=c246fced21495f');
+        let data = await response.json();
+        
+        // If we got valid country data, use it
+        if (data && data.country) {
+            return mapCountryToRegion(data.country);
+        }
+        
+        // If first API fails, try alternate API (ipapi.co)
+        response = await fetch('https://ipapi.co/json/');
+        data = await response.json();
+        
+        if (data && data.country) {
+            return mapCountryToRegion(data.country);
+        }
+        
+        // As a last resort, try geolocation-db.com
+        response = await fetch('https://geolocation-db.com/json/');
+        data = await response.json();
+        
+        if (data && data.country_code) {
+            return mapCountryToRegion(data.country_code);
+        }
+        
+        // If all APIs fail, fall back to global
+        return 'global';
+    } catch (error) {
+        console.error('Error detecting region:', error);
+        return 'global';
+    }
+}
+
+// Map country code to our region options
+function mapCountryToRegion(countryCode) {
+    const countryRegionMap = {
+        'IN': 'in',
+        'GB': 'uk',
+        'DE': 'eu', 'FR': 'eu', 'IT': 'eu', 'ES': 'eu', 
+        'NL': 'eu', 'BE': 'eu', 'AT': 'eu', 'GR': 'eu', 
+        'PT': 'eu',
+        'US': 'us',
+        'CA': 'ca'
     };
+    
+    return countryRegionMap[countryCode] || 'global';
+}
 
-    // Update prices based on region
-    function updatePrices(region) {
-        const regionInfo = regionData[region];
-        
-        if (!regionInfo) return;
-        
-        // Update main package price elements
-        document.getElementById('basic-price').textContent = regionInfo.symbol + regionInfo.prices.basic;
-        document.getElementById('comprehensive-price').textContent = regionInfo.symbol + regionInfo.prices.comprehensive;
-        document.getElementById('premium-price').textContent = regionInfo.symbol + regionInfo.prices.premium;
-        
-        // Update specialized services price elements
-        document.getElementById('business-price').textContent = regionInfo.symbol + regionInfo.prices.business;
-        document.getElementById('couples-price').textContent = regionInfo.symbol + regionInfo.prices.couples;
-        document.getElementById('energy-price').textContent = regionInfo.symbol + regionInfo.prices.energy;
-        document.getElementById('therapy-price').textContent = regionInfo.symbol + regionInfo.prices.therapy;
+// Update prices for both pricing and services pages
+function updatePrices(region) {
+    const regionInfo = regionData[region];
+    
+    if (!regionInfo) return;
+    
+    // Pricing Page Elements
+    const pricingElements = {
+        basic: document.getElementById('basic-price'),
+        comprehensive: document.getElementById('comprehensive-price'),
+        premium: document.getElementById('premium-price'),
+        business: document.getElementById('business-price'),
+        couples: document.getElementById('couples-price'),
+        energy: document.getElementById('energy-price'),
+        therapy: document.getElementById('therapy-price')
+    };
+    
+    // Services Page Price Elements
+    const serviceElements = {
+        personalAstrology: document.querySelector('.service-card:nth-child(1) .price-tag'),
+        numerology: document.querySelector('.service-card:nth-child(2) .price-tag'),
+        relationshipCompatibility: document.querySelector('.service-card:nth-child(3) .price-tag'),
+        businessAstrology: document.querySelector('.service-card:nth-child(4) .price-tag'),
+        eftTft: document.querySelector('.service-card:nth-child(5) .price-tag'),
+        crystalHealing: document.querySelector('.service-card:nth-child(6) .price-tag'),
+        energyClearing: document.querySelector('.service-card:nth-child(7) .price-tag'),
+        tarotReading: document.querySelector('.service-card:nth-child(8) .price-tag')
+    };
+    
+    // Update Pricing Page Prices
+    if (pricingElements.basic) 
+        pricingElements.basic.textContent = regionInfo.symbol + regionInfo.prices.basic;
+    if (pricingElements.comprehensive) 
+        pricingElements.comprehensive.textContent = regionInfo.symbol + regionInfo.prices.comprehensive;
+    if (pricingElements.premium) 
+        pricingElements.premium.textContent = regionInfo.symbol + regionInfo.prices.premium;
+    if (pricingElements.business) 
+        pricingElements.business.textContent = regionInfo.symbol + regionInfo.prices.business;
+    if (pricingElements.couples) 
+        pricingElements.couples.textContent = regionInfo.symbol + regionInfo.prices.couples;
+    if (pricingElements.energy) 
+        pricingElements.energy.textContent = regionInfo.symbol + regionInfo.prices.energy;
+    if (pricingElements.therapy) 
+        pricingElements.therapy.textContent = regionInfo.symbol + regionInfo.prices.therapy;
+    
+    // Update Services Page Prices
+    if (serviceElements.personalAstrology) 
+        serviceElements.personalAstrology.textContent = regionInfo.symbol + regionInfo.prices.personalAstrology;
+    if (serviceElements.numerology) 
+        serviceElements.numerology.textContent = regionInfo.symbol + regionInfo.prices.numerology;
+    if (serviceElements.relationshipCompatibility) 
+        serviceElements.relationshipCompatibility.textContent = regionInfo.symbol + regionInfo.prices.relationshipCompatibility;
+    if (serviceElements.businessAstrology) 
+        serviceElements.businessAstrology.textContent = regionInfo.symbol + regionInfo.prices.businessAstrology;
+    if (serviceElements.eftTft) 
+        serviceElements.eftTft.textContent = regionInfo.symbol + regionInfo.prices.eftTft;
+    if (serviceElements.crystalHealing) 
+        serviceElements.crystalHealing.textContent = regionInfo.symbol + regionInfo.prices.crystalHealing;
+    if (serviceElements.energyClearing) 
+        serviceElements.energyClearing.textContent = regionInfo.symbol + regionInfo.prices.energyClearing;
+    if (serviceElements.tarotReading) 
+        serviceElements.tarotReading.textContent = regionInfo.symbol + regionInfo.prices.tarotReading;
+}
+
+// Initialize pricing when DOM is loaded
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        const region = await detectUserRegion();
+        updatePrices(region);
+    } catch (error) {
+        console.error('Error initializing pricing:', error);
+        updatePrices('global');
     }
-
-    // Multiple API options for geo-detection with fallbacks
-    async function detectUserRegion() {
-        try {
-            // Try first API (ipinfo.io)
-            let response = await fetch('https://ipinfo.io/json?token=c246fced21495f');
-            let data = await response.json();
-            
-            // If we got valid country data, use it
-            if (data && data.country) {
-                return mapCountryToRegion(data.country);
-            }
-            
-            // If first API fails, try alternate API (ipapi.co)
-            response = await fetch('https://ipapi.co/json/');
-            data = await response.json();
-            
-            if (data && data.country) {
-                return mapCountryToRegion(data.country);
-            }
-            
-            // As a last resort, try geolocation-db.com
-            response = await fetch('https://geolocation-db.com/json/');
-            data = await response.json();
-            
-            if (data && data.country_code) {
-                return mapCountryToRegion(data.country_code);
-            }
-            
-            // If all APIs fail, fall back to global
-            return 'global';
-        } catch (error) {
-            console.error('Error detecting region:', error);
-            return 'global';
-        }
-    }
-
-    // Map country code to our region options
-    function mapCountryToRegion(countryCode) {
-        const countryRegionMap = {
-            'IN': 'in',
-            'GB': 'uk',
-            'DE': 'eu', 'FR': 'eu', 'IT': 'eu', 'ES': 'eu', 
-            'NL': 'eu', 'BE': 'eu', 'AT': 'eu', 'GR': 'eu', 
-            'PT': 'eu',
-            'US': 'us',
-            'CA': 'ca'
-        };
-        
-        return countryRegionMap[countryCode] || 'global';
-    }
-
-    // Initialize pricing when DOM is loaded
-    document.addEventListener('DOMContentLoaded', async function() {
-        try {
-            const region = await detectUserRegion();
-            updatePrices(region);
-        } catch (error) {
-            console.error('Error initializing pricing:', error);
-            updatePrices('global');
-        }
-    });
-    </script>
+});</script>
 </body>
 </html>
